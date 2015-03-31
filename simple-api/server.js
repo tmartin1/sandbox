@@ -4,7 +4,7 @@
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
-var mongoose   = require('mongoose');
+var mongoose = require('mongoose');
 var Beer = require('./app/models/beer');
 
 // Connect to our database.
@@ -26,7 +26,7 @@ var router = express.Router();
 
 // Middleware to use for all requests.
 router.use(function(req, res, next) {
-  // do stuff
+  // do stuff...
   console.log('Connecting...');
   next(); // Go to the next routes.
 });

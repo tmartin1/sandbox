@@ -50,37 +50,37 @@ router.route('/beers')
     res.json(beers);
   });
 })
-// Get a beer with a given id (accessed at GET http://localhost:8080/api/bears/:bear_id).
+// Get a beer with a given id (accessed at GET http://localhost:8080/api/bears/:beer_id).
 .get(function(req, res) {
-  Beer.findById(req.params.bear_id, function(err, beer) {
+  Beer.findById(req.params.beer_id, function(err, beer) {
     if (err) res.send(err);
     res.json(beer);
   });
 })
-// update the beer with this id (accessed at PUT http://localhost:8080/api/bears/:bear_id)
+// Update a beer with given id (accessed at PUT http://localhost:8080/api/bears/:beer_id).
 .put(function(req, res) {
-  // use our beer model to find the beer we want
-  Beer.findById(req.params.bear_id, function(err, beer) {
+  // Use the beer model to find the beer we want.
+  Beer.findById(req.params.beer_id, function(err, beer) {
     if (err) res.send(err);
-    beer.name = req.body.name;  // update the bears info
-    // save the beer
+    beer.name = req.body.name;  // Update the bears info.
+    // Save the beer in the database.
     beer.save(function(err) {
       if (err) res.send(err);
       res.json({ message: 'Beer successfully updated.' });
     });
   });
 })
-// delete the beer with this id (accessed at DELETE http://localhost:8080/api/bears/:bear_id)
+// Delete a beer with given id (accessed at DELETE http://localhost:8080/api/bears/:beer_id).
 .delete(function(req, res) {
   Beer.remove({
-    _id: req.params.bear_id
+    _id: req.params.beer_id
   }, function(err, beer) {
     if (err) res.send(err);
     res.json({ message: 'Beer successfully deleted.' });
   });
 });
 
-// Test route to make sure everything is working (accessed at GET http://localhost:9000/api)
+// Test route to make sure everything is working (accessed at GET http://localhost:9000/api).
 router.get('/', function(req, res) {
   res.json({ message: 'Welcome to Beer API!' });
 });

@@ -35,7 +35,6 @@ var translate = function(word) {
   // Remove punctuation and set to lower case.
   var result = word.replace(/[^a-z0-9]/ig, '').toLowerCase();
   var length = result.length;
-  if (result.match(/[^a-z0-9]/gi)) return word;
 
   // If word ends in 'way' don't modify.
   // If word starts with vowel: move first letter to end and add 'way'.

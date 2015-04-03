@@ -1,18 +1,22 @@
 // This was the coding challenge from the onsite interview, plugged my computer into a large monitor
 // and I explained what I was doing and why as I was coding.
 
+var translateText = function() {
+  $('#posttranslated').text(pigLatin($('#pretranslated').val()));
+};
+
 // Assume input is always a string.
-function pigLatin(str) {
+var pigLatin = function(str) {
   str = str.split(' ');
   // end of word is when there is a non-alphabetic character (also not apost.)
   for (var i=0, n=str.length; i<n; i++) {
     str[i] = translate(str[i]);
   }
   return str.join(' ');
-}
+};
 
 // Accept single word as parameter, return translated word.
-function translate(word) {
+var translate = function(word) {
   var wordLength = word.length;
 
   // Check for hyphens in word
@@ -74,6 +78,4 @@ function translate(word) {
   }
 
   return word;
-}
-
-var test = 'Hi t\'his is a te-st.';
+};
